@@ -1,0 +1,714 @@
+/* ============================================
+   ROMANTIC VALENTINE'S DAY WEBSITE - LUXURY EDITION
+   Elegant, Romantic, Luxurious Design
+   ============================================ */
+
+/* ===== GOOGLE FONTS IMPORT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Roses&family=Homemade+Apple&family=Poppins:wght@300;400;600&display=swap');
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Homemade Apple', cursive;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a0a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+    background-attachment: fixed;
+    color: #e8d5c4;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Luxury background overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 105, 180, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(218, 165, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ===== NAVIGATION ===== */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 25px 10px;
+    flex-wrap: wrap;
+    background: linear-gradient(180deg, rgba(255, 105, 180, 0.08) 0%, rgba(218, 165, 255, 0.05) 100%);
+    backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.1);
+    border-bottom: 1px solid rgba(255, 105, 180, 0.2);
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.3), rgba(218, 165, 255, 0.2));
+    border: 2px solid rgba(255, 105, 180, 0.5);
+    color: #ffb6c1;
+    padding: 14px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Homemade Apple', cursive;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.15);
+    letter-spacing: 0.5px;
+}
+
+.nav-btn:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.35);
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.5), rgba(218, 165, 255, 0.35));
+    border-color: rgba(255, 105, 180, 0.8);
+    color: #ffffff;
+}
+
+.nav-btn:active {
+    transform: translateY(0);
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== HEADINGS - HANDWRITTEN FONTS ===== */
+h1 {
+    font-family: 'Roses', cursive;
+    font-size: 4em;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 20px rgba(255, 105, 180, 0.2);
+    animation: slideDown 1s ease;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #da55f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-family: 'Roses', cursive;
+    font-size: 2.8em;
+    margin: 30px 0 20px 0;
+    background: linear-gradient(135deg, #ff69b4 0%, #da55f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-family: 'Roses', cursive;
+    color: #ffb6c1;
+    font-size: 1.8em;
+    margin: 20px 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TEXT STYLES ===== */
+p {
+    font-size: 1.2em;
+    line-height: 2;
+    color: #e8d5c4;
+    margin: 20px 0;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.romantic-text {
+    font-family: 'Roses', cursive;
+    font-style: italic;
+    background: linear-gradient(135deg, #ff69b4 0%, #da55f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+/* ===== FLOATING HEARTS ANIMATION ===== */
+.floating-hearts {
+    position: fixed;
+    top: -10px;
+    left: 50%;
+    font-size: 2.5em;
+    color: #ff69b4;
+    pointer-events: none;
+    animation: float-up 8s ease-in infinite;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.4));
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(150px) translateY(-100vh) scale(0.3) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ===== SPARKLES ANIMATION ===== */
+.sparkles {
+    display: inline-block;
+    position: relative;
+}
+
+.sparkles::before,
+.sparkles::after {
+    content: '✨';
+    animation: sparkle 0.6s ease-in-out;
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) translateY(-20px);
+    }
+}
+
+/* ===== MUSIC CONTROLS ===== */
+.music-player {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(218, 165, 255, 0.15));
+    border-radius: 60px;
+    padding: 18px;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.25);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 90;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 105, 180, 0.3);
+}
+
+.music-btn {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.4), rgba(218, 165, 255, 0.3));
+    border: 2px solid rgba(255, 105, 180, 0.5);
+    color: #ffb6c1;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3em;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+}
+
+.music-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4);
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.6), rgba(218, 165, 255, 0.5));
+    border-color: rgba(255, 105, 180, 0.8);
+}
+
+.volume-control {
+    width: 120px;
+}
+
+.volume-control input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(255, 105, 180, 0.3), rgba(218, 165, 255, 0.3));
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff69b4, #da55f0);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+}
+
+.volume-control input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff69b4, #da55f0);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+}
+
+@media (max-width: 600px) {
+    .music-player {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px;
+    }
+    
+    .volume-control {
+        display: none;
+    }
+}
+
+/* ===== SURPRISE BUTTON (LUXURY VERSION) ===== */
+.surprise-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    font-size: 2.5em;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 95;
+    filter: drop-shadow(0 4px 15px rgba(255, 105, 180, 0.3)) drop-shadow(0 0 8px rgba(218, 85, 240, 0.2));
+    animation: subtleFloat 3s ease-in-out infinite;
+}
+
+.surprise-btn:hover {
+    opacity: 1;
+    transform: scale(1.3) rotate(20deg);
+    filter: drop-shadow(0 8px 25px rgba(255, 105, 180, 0.6)) drop-shadow(0 0 15px rgba(218, 85, 240, 0.4));
+    animation: none;
+}
+
+@keyframes subtleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-8px) rotate(5deg);
+    }
+}
+
+/* ===== POPUP/MODAL (LUXURY VERSION) ===== */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(15, 15, 15, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(218, 85, 240, 0.25), inset 0 0 30px rgba(255, 105, 180, 0.08);
+    z-index: 1000;
+    max-width: 90%;
+    animation: popupAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 2px solid rgba(255, 105, 180, 0.4);
+}
+
+@keyframes popupAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) rotateY(-20deg);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotateY(0);
+    }
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+}
+
+.popup h2 {
+    margin-top: 0;
+    text-align: center;
+    background: linear-gradient(135deg, #ff69b4, #da55f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.popup p {
+    text-align: center;
+    font-size: 1.15em;
+    color: #e0b0ff;
+    font-family: 'Homemade Apple', cursive;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.close-popup {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2.5em;
+    cursor: pointer;
+    color: #ff69b4;
+    background: none;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.4));
+}
+
+.close-popup:hover {
+    transform: scale(1.2) rotate(90deg);
+    color: #da55f0;
+    filter: drop-shadow(0 0 15px rgba(218, 85, 240, 0.6));
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    background: linear-gradient(135deg, #ff69b4, #da55f0);
+    color: white;
+    border: none;
+    padding: 16px 45px;
+    border-radius: 50px;
+    font-size: 1.15em;
+    font-weight: 600;
+    font-family: 'Homemade Apple', cursive;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin: 15px 8px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(255, 105, 180, 0.5);
+    background: linear-gradient(135deg, #ff1493, #ff69b4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #5568d3, #653a8f);
+    box-shadow: 0 15px 45px rgba(102, 126, 234, 0.4);
+}
+
+/* ===== IMAGE STYLES ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.2);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 2px solid rgba(255, 105, 180, 0.2);
+}
+
+img:hover {
+    transform: scale(1.08) rotateY(5deg);
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.4);
+    border-color: rgba(255, 105, 180, 0.5);
+}
+
+/* ===== GALLERY GRID ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(218, 165, 255, 0.05));
+    box-shadow: 0 12px 35px rgba(255, 105, 180, 0.15);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(255, 105, 180, 0.2);
+}
+
+.gallery-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.35);
+    border-color: rgba(255, 105, 180, 0.5);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.gallery-caption {
+    padding: 18px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(218, 165, 255, 0.05));
+    color: #ffb6c1;
+    font-weight: 600;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 1.1em;
+}
+
+/* ===== TYPING ANIMATION ===== */
+.typing-text {
+    display: inline-block;
+    border-right: 3px solid #ff69b4;
+    white-space: pre-wrap;
+    animation: typing 0.05s steps(1, end) forwards;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+/* ===== LOVE LETTER STYLES ===== */
+.letter-container {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.08), rgba(218, 165, 255, 0.05));
+    border: 2px solid rgba(255, 105, 180, 0.4);
+    border-radius: 25px;
+    padding: 50px;
+    margin: 40px auto;
+    max-width: 750px;
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.2);
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.letter-container::before {
+    content: '💌';
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3.5em;
+    filter: drop-shadow(0 4px 12px rgba(255, 105, 180, 0.3));
+}
+
+.letter-text {
+    font-size: 1.15em;
+    line-height: 2.2;
+    color: #e8d5c4;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Homemade Apple', cursive;
+}
+
+/* ===== VOICE MESSAGE STYLES ===== */
+.voice-container {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(218, 165, 255, 0.05));
+    border: 2px dashed rgba(102, 126, 234, 0.4);
+    border-radius: 25px;
+    padding: 50px;
+    margin: 40px auto;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.audio-player {
+    width: 100%;
+    margin: 25px 0;
+    border-radius: 15px;
+    filter: invert(0.8) brightness(1.1);
+}
+
+/* ===== COUNTDOWN TIMER ===== */
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.countdown-item {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(218, 165, 255, 0.1));
+    border: 2px solid rgba(255, 105, 180, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    color: #ffb6c1;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 105, 180, 0.6);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.25);
+}
+
+.countdown-item h3 {
+    font-size: 3em;
+    margin: 0;
+    color: #ff69b4;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+}
+
+.countdown-item p {
+    margin: 10px 0 0 0;
+    font-size: 0.95em;
+    font-family: 'Homemade Apple', cursive;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .countdown {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 20px 15px;
+    }
+}
+
+/* ===== HEART RAIN EFFECT ===== */
+.heart-rain {
+    position: fixed;
+    font-size: 1.5em;
+    pointer-events: none;
+    animation: fall 5s ease-in forwards;
+    z-index: 50;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ===== BORDER GLOW EFFECT ===== */
+.glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+    }
+}
+
+/* ===== PULSE ANIMATION ===== */
+.pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    
+    .nav-container {
+        gap: 10px;
+        padding: 15px 10px;
+    }
+    
+    .nav-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .letter-container,
+    .voice-container {
+        padding: 30px;
+        margin: 20px auto;
+    }
+    
+    .music-player {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px;
+    }
+}

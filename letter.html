@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love Letter For You 💌</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <div class="nav-container">
+        <button class="nav-btn" onclick="window.location.href='index.html'">🏠 Home</button>
+        <button class="nav-btn" onclick="window.location.href='memories.html'">📸 Our Memories</button>
+        <button class="nav-btn" onclick="window.location.href='letter.html'">💌 Love Letter</button>
+        <button class="nav-btn" onclick="window.location.href='voice.html'">🎤 Voice Message</button>
+    </div>
+
+    <!-- ===== SURPRISE BUTTON ===== -->
+    <button class="surprise-btn" onclick="showSurprise()" title="Click for a surprise!">🎁</button>
+
+    <!-- ===== MUSIC PLAYER ===== -->
+    <div class="music-player">
+        <button class="music-btn" onclick="toggleMusic()" title="Play/Pause Music">🎵</button>
+        <div class="volume-control">
+            <input type="range" min="0" max="100" value="30" onchange="setVolume(this.value)" title="Volume">
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="container">
+        <h1>💌 My Love Letter For You 💌</h1>
+        <p class="romantic-text">Words from my heart to yours</p>
+
+        <!-- ===== LOVE LETTER WITH TYPING ANIMATION ===== 
+        EDIT: Replace the text below with your own love letter
+        You can make it as long or as short as you want
+        The typing animation will play automatically when the page loads
+        -->
+        <div class="letter-container glow">
+            <div id="letter-content" class="letter-text">
+My Dearest Love,
+
+Today I want to tell you exactly what you mean to me. From the moment you came into my life, everything changed. You are my sunshine on cloudy days, my strength when I'm weak, and my greatest blessing.
+
+Every laugh we share, every moment we spend together, every little touch - they all mean the world to me. You have shown me what true love is. You've made me believe in forever, in soulmates, in the kind of love that fairy tales are written about.
+
+I love the way your eyes light up when you smile. I love the way you laugh at my silly jokes. I love how you make me feel like I'm the most important person in your world. I love everything about you - your kindness, your strength, your beautiful heart.
+
+You are not just my girlfriend - you are my best friend, my confidant, my soulmate, my forever person. With you, I feel home. I feel safe, loved, and cherished in ways I never thought possible.
+
+I promise to love you with all my heart, through every season of life. I promise to support your dreams, celebrate your victories, and hold you through your struggles. I promise to be the man you deserve.
+
+You are my greatest love story, and I cannot wait to spend the rest of my life loving you.
+
+Forever yours,
+With all my love and devotion 💕
+            </div>
+        </div>
+
+        <p style="margin-top: 40px; text-align: center; font-size: 1.1em; color: #ff69b4;">
+            💕 I love you more than words can express 💕
+        </p>
+
+        <div style="margin-top: 30px;">
+            <button class="btn btn-secondary" onclick="window.location.href='voice.html'">🎤 Listen To My Voice Message</button>
+        </div>
+    </div>
+
+    <!-- ===== SURPRISE POPUP ===== -->
+    <div id="popup-overlay" class="popup-overlay"></div>
+    <div id="surprise-popup" class="popup">
+        <button class="close-popup" onclick="closeSurprise()">&times;</button>
+        <h2>💝 A Secret Love Note 💝</h2>
+        <p style="font-size: 1.2em; font-style: italic;">
+            "In all the world, there is no love story more beautiful than ours."
+        </p>
+        <p>
+            You are my greatest adventure, my sweetest dream, and my happiest reality.
+        </p>
+        <p style="color: #ff69b4; font-weight: bold; margin-top: 20px;">
+            Thank you for loving me. 💕
+        </p>
+    </div>
+
+    <script>
+        // Initialize typing animation when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const letterText = document.getElementById('letter-content').textContent;
+            document.getElementById('letter-content').textContent = '';
+            typeWriter('letter-content', letterText, 15);
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+       
