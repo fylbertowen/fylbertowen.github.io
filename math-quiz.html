@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Matematika — BAEUDA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container" style="max-width:700px;margin:40px auto;">
+    <div class="card" style="padding:2em;">
+      <div class="badge">Quiz Matematika</div>
+      <h3 style="margin-bottom:1em;">10 Soal Cepat</h3>
+      <div id="quiz-area">
+        <div id="quiz-question" style="font-size:1.1rem;margin-bottom:.8em;"></div>
+        <div id="quiz-options"></div>
+        <div id="quiz-feedback" style="margin-top:1em;min-height:2em;"></div>
+        <button class="btn brand" id="quiz-next" style="display:none;margin-top:1em;">Soal Berikutnya</button>
+        <div id="quiz-score" style="margin-top:1em;font-weight:600;"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const quizQuestions = [
+      {q:"5 + 7 = ?", options:["10","11","12","13"], answer:2, explain:"5 + 7 = 12."},
+      {q:"12 - 4 = ?", options:["6","8","7","9"], answer:1, explain:"12 - 4 = 8."},
+      {q:"6 × 7 = ?", options:["42","36","48","40"], answer:0, explain:"6 × 7 = 42."},
+      {q:"24 ÷ 6 = ?", options:["4","5","6","3"], answer:0, explain:"24 ÷ 6 = 4."},
+      {q:"Berapakah akar kuadrat 81?", options:["7","8","9","10"], answer:2, explain:"√81 = 9."},
+      {q:"Jika x=3, maka 2x+5 = ?", options:["11","10","9","8"], answer:0, explain:"2×3+5 = 11."},
+      {q:"80% dari 50 adalah?", options:["35","40","45","30"], answer:1, explain:"80%×50 = 40."},
+      {q:"Jarak 9 km ditempuh dalam 3 jam, kecepatan rata-rata = ?", options:["2 km/j","3 km/j","4 km/j","5 km/j"], answer:1, explain:"9/3 = 3 km/j."},
+      {q:"Pangkat 2 dari 5 adalah...", options:["10","20","25","15"], answer:2, explain:"5² = 25."},
+      {q:"Jika a=2 dan b=4, nilai a^b adalah...", options:["8","16","6","4"], answer:1, explain:"2^4 = 16."}
+    ];
+    let idx=0, score=0;
+    function showQ(){
+      const q=quizQuestions[idx];
+      document.getElementById('quiz-question').innerHTML = `<b>Soal ${idx+1}:</b> ${q.q}`;
+      document.getElementById('quiz-options').innerHTML = q.options.map((o,i)=>
+        `<button class="btn full" style="margin:.4em 0;text-align:left;" onclick="answer(${i})">${o}</button>`
+      ).join('');
+      document.getElementById('quiz-feedback').textContent='';
+      document.getElementById('quiz-next').style.display='none';
+      document.getElementById('quiz-score').textContent = `Soal ${idx+1} / ${quizQuestions.length}`;
+    }
+    window.answer = function(selected){
+      const q=quizQuestions[idx];
+      if(selected===q.answer){ score++; document.getElementById('quiz-feedback').innerHTML = `<span style="color:var(--ok)">Benar! 🎉</span>`; }
+      else { document.getElementById('quiz-feedback').innerHTML = `<span style="color:var(--danger)">Salah</span><br>Jawaban: <b>${q.options[q.answer]}</b><br><small>${q.explain}</small>`; }
+      document.getElementById('quiz-options').innerHTML='';
+      document.getElementById('quiz-next').style.display='inline-block';
+      document.getElementById('quiz-score').textContent = `Skor: ${score} / ${quizQuestions.length}`;
+    };
+    document.getElementById('quiz-next').onclick = function(){
+      idx++;
+      if(idx < quizQuestions.length) showQ();
+      else document.getElementById('quiz-area').innerHTML = `<h4>Quiz selesai!</h4><p>Skor akhir: <b>${score} / ${quizQuestions.length}</b></p><a class="btn" href="dashboard.html">Kembali</a>`;
+    };
+    showQ();
+  </script>
+</body>
+</html>

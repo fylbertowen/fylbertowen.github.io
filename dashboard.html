@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BAEUDA — Belajar Seru & Interaktif</title>
+  <link rel="shortcut icon" href="logo-removebg-preview.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .avatar {
+      width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid rgba(0,0,0,.06);
+    }
+    .stat-list { 
+      list-style:none;padding:0;margin:0;
+      display:flex;flex-direction:column;gap:.4rem 
+    }
+    .stat-item { 
+      display:flex;justify-content:space-between;
+      align-items:center;padding:.6rem .8rem;
+      border-radius:12px;background:var(--card);
+      border:1px solid var(--border);
+      transition: transform .2s;
+    }
+    .stat-item:hover {
+      transform: translateY(-2px);
+    }
+    .game-btn {
+      padding: .8rem 1rem;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      transition: transform .2s;
+    }
+    .game-btn:hover {
+      transform: translateY(-2px);
+    }
+    .game-btn .icon {
+      font-size: 1.4rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="Logo BAEUDA" class="logo" />
+        <h1>BAEUDA</h1>
+      </div>
+      <nav class="navlinks">
+        <a href="#games" class="hide-m">Games</a>
+        <a href="#stats" class="hide-m">Statistik</a>
+        <a href="#leaderboard" class="hide-m">Leaderboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:32px 20px 48px;">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="grid2">
+        <div>
+          <span class="badge" style="background:var(--brand-2);color:#fff;">Bahasa dan Edukasi Digital</span>
+          <h2 class="title" style="font-size:2rem;margin:.5rem 0;">Belajar seru untuk <b>Gen Z & Gen Alpha</b></h2>
+          <p style="color:var(--muted);margin-bottom:1.5rem;">
+            Konten pendek, game edukasi, misi harian, dan leaderboard. BAEUDA bikin belajar
+            jadi menyenangkan, bukan membosankan.
+          </p>
+        </div>
+        <div class="card">
+          <div class="profile-row">
+            <img id="profile-avatar" class="avatar" src="avatar-default.png" alt="Avatar" />
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem;">
+                <h2 id="profile-name" style="margin:0;font-size:1.2rem;">Nama Pemain</h2>
+                <button id="edit-name-btn" class="btn ghost" style="padding:.25rem .6rem;font-size:.85rem;">Edit</button>
+              </div>
+              <div style="display:flex;align-items:center;gap:.8rem;">
+                <span class="badge" data-type="level">Level 3</span>
+                <div><span id="user-xp" style="font-weight:700;">0</span> XP</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:1rem;">
+            <label class="btn ghost" for="avatar-input" style="font-size:.9rem;">Ubah Foto</label>
+            <input id="avatar-input" type="file" accept="image/*" style="display:none;" />
+          </div>
+
+          <div id="name-edit-area" style="display:none;margin-top:1rem;">
+            <div class="edit-inline" style="display:flex;gap:.5rem;">
+              <input id="name-input" class="input" style="flex:1;padding:.5rem .8rem;" />
+              <button id="save-name" class="btn brand">Simpan</button>
+              <button id="cancel-name" class="btn ghost">Batal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Games Grid -->
+    <section id="games" style="margin-top:48px;">
+      <h3 style="margin:0 0 1rem;">Mini Games</h3>
+      <div class="grid2" style="gap:16px;">
+        <a href="quiz.html" target="_blank" class="game-btn">
+          <span class="icon">⚡</span>
+          <div style="flex:1;">
+            <div style="font-weight:600;margin-bottom:.2rem;">Quiz Fisika</div>
+            <div style="font-size:.9rem;color:var(--muted);">10 soal pilihan ganda</div>
+          </div>
+        </a>
+        <a href="math-quiz.html" target="_blank" class="game-btn">
+          <span class="icon">🔢</span>
+          <div style="flex:1;">
+            <div style="font-weight:600;margin-bottom:.2rem;">Quiz Matematika</div>
+            <div style="font-size:.9rem;color:var(--muted);">Latihan soal matematika</div>
+          </div>
+        </a>
+        <a href="word-guess.html" target="_blank" class="game-btn">
+          <span class="icon">📝</span>
+          <div style="flex:1;">
+            <div style="font-weight:600;margin-bottom:.2rem;">Tebak Kata</div>
+            <div style="font-size:.9rem;color:var(--muted);">Permainan tebak kata</div>
+          </div>
+        </a>
+        <a href="memory-game.html" target="_blank" class="game-btn">
+          <span class="icon">🎯</span>
+          <div style="flex:1;">
+            <div style="font-weight:600;margin-bottom:.2rem;">Memory Card</div>
+            <div style="font-size:.9rem;color:var(--muted);">Latih daya ingat</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Stats & Challenges -->
+    <div class="grid2" style="margin-top:48px;gap:24px;">
+      <section id="stats">
+        <h3 style="margin:0 0 1rem;">Statistik Belajar</h3>
+        <div class="card">
+          <ul class="stat-list" id="stat-list"></ul>
+          <div style="margin-top:1rem;display:flex;justify-content:flex-end;">
+            <button id="reset-stats" class="btn ghost">Reset Statistik</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 style="margin:0 0 1rem;">Misi Harian</h3>
+        <div class="card">
+          <ul id="dashboard-challenge-list" style="margin-bottom:1rem;"></ul>
+          <button class="btn brand full" id="dashboard-challenge-done">Tandai Selesai</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Leaderboard -->
+    <section id="leaderboard" style="margin-top:48px;">
+      <h3 style="margin:0 0 1rem;">Leaderboard Mingguan</h3>
+      <div class="card">
+        <table class="table" role="table" aria-label="Leaderboard">
+          <tbody>
+            <tr><td class="rank">#1</td><td class="name"><span>🟣</span> Owen</td><td>Quiz Fisika — 1200 XP</td></tr>
+            <tr><td class="rank">#2</td><td class="name"><span>🔵</span> Dafa</td><td>Quiz Matematika — 1100 XP</td></tr>
+            <tr><td class="rank">#3</td><td class="name"><span>🟢</span> Naya</td><td>Quiz Fisika — 980 XP</td></tr>
+            <tr><td class="rank">#4</td><td class="name"><span>🟡</span> Kamu</td><td>Quiz Fisika — <span id="user-xp-2">0</span> XP</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="y"></span> BAEUDA — Bahasa dan Edukasi Digital Anak Muda</div>
+  </footer>
+
+  <!-- Keep your existing script here, it works great! -->
+  <script>
+    // ...existing code...
+  </script>
+</body>
+</html>

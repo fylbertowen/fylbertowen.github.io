@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tebak Kata — BAEUDA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container" style="max-width:700px;margin:40px auto;">
+    <div class="card" style="padding:2em;">
+      <div class="badge">Tebak Kata</div>
+      <h3>Tebak kata (5 kesempatan)</h3>
+      <div id="word-area" style="font-size:1.4rem;letter-spacing:.2em;margin:1em 0;"></div>
+      <div id="letters" style="display:flex;flex-wrap:wrap;gap:.5em;"></div>
+      <div id="status" style="margin-top:1em;"></div>
+      <button class="btn" id="restart" style="margin-top:1em;display:none;">Main Lagi</button>
+    </div>
+  </main>
+
+  <script>
+    const words = ["ALGORITMA","FISIKA","ENERGI","GAYA","KECEPATAN","KALISIM","VAKUM","GRAVITASI"];
+    let answer, revealed, tries;
+    function start(){
+      answer = words[Math.floor(Math.random()*words.length)];
+      revealed = Array(answer.length).fill(false);
+      tries = 5;
+      render();
+      document.getElementById('restart').style.display='none';
+      document.getElementById('status').textContent = `Kesempatan: ${tries}`;
+    }
+    function render(){
+      document.getElementById('word-area').textContent = revealed.map((v,i)=> v?answer[i]:'_').join(' ');
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+      document.getElementById('letters').innerHTML = letters.map(l=>`<button class="btn" style="padding:.4em .6em" onclick="guess('${l}')" id="let-${l}">${l}</button>`).join('');
+    }
+    window.guess = function(ch){
+      if(tries<=0) return;
+      let hit=false;
+      for(let i=0;i<answer.length;i++){
+        if(answer[i]===ch){ revealed[i]=true; hit=true; }
+      }
+      if(!hit){ tries--; document.getElementById('status').textContent = `Kesempatan: ${tries}`; }
+      document.getElementById('let-'+ch).disabled = true;
+      renderWordState();
+    };
+    function renderWordState(){
+      document.getElementById('word-area').textContent = revealed.map((v,i)=> v?answer[i]:'_').join(' ');
+      if(revealed.every(Boolean)){
+        document.getElementById('status').innerHTML = `<span style="color:var(--ok)">Menang! Jawaban: ${answer}</span>`;
+        endGame();
+      } else if(tries<=0){
+        document.getElementById('status').innerHTML = `<span style="color:var(--danger)">Kalah. Jawaban: ${answer}</span>`;
+        endGame();
+      }
+    }
+    function endGame(){ document.getElementById('restart').style.display='inline-block'; document.querySelectorAll('#letters button').forEach(b=>b.disabled=true); }
+    document.getElementById('restart').onclick = start;
+    start();
+  </script>
+</body>
+</html>
